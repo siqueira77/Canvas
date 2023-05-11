@@ -1,4 +1,5 @@
 Curso de Lógica de Programação e Utilização da API Canvas
+
 Olá, pessoal!
 
 Gostaria de compartilhar com vocês sobre o curso de Lógica de Programação que estou realizando atualmente, focado na utilização da API Canvas. Durante o curso, aprendi conceitos fundamentais de programação e explorei as possibilidades de criação de gráficos e elementos visuais interativos.
