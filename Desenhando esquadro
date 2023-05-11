@@ -1,0 +1,35 @@
+<--!Cria um elemento canvas com uma largura de 600 pixels e altura de 400 pixels na página HTML-->
+<canvas width="600" height="400"></canvas>
+
+<script>
+    // Seleciona o elemento canvas na página
+    var tela = document.querySelector('canvas');
+    // Obtém o contexto 2D do canvas
+    var pincel = tela.getContext('2d');
+
+    // Função para desenhar o esquadro
+    function desenhaEsquadro(xa, ya, xc, yc, cor) {
+        // Define a cor de preenchimento do esquadro
+        pincel.fillStyle = cor;
+        // Inicia o desenho do esquadro
+        pincel.beginPath();
+        // Move o ponto inicial para (xa, ya)
+        pincel.moveTo(xa, ya);
+        // Desenha uma linha vertical até (xa, yc)
+        pincel.lineTo(xa, yc);
+        // Desenha uma linha horizontal até (xc, yc)
+        pincel.lineTo(xc, yc);
+        // Preenche o esquadro com a cor definida
+        pincel.fill();
+        // Faz a mesma coisa com uma proporção menor com o preenchimento branco 
+        pincel.fillStyle = 'white'
+        pincel.beginPath();
+        pincel.moveTo((xa*2), (ya*3.5));
+        pincel.lineTo((xa*2), ((yc/8)*7));
+        pincel.lineTo(((xc/3.2)*2.2), ((yc/8)*7));
+        pincel.fill();
+    }
+
+    // Chamada para o algoritmo
+    desenhaEsquadro(25, 25, 200, 200, 'black');
+</script>
