@@ -1,0 +1,42 @@
+<--!Cria um elemento canvas com uma largura de 600 pixels e altura de 400 pixels na página HTML-->
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    // Seleciona o elemento canvas na página
+    var tela = document.querySelector('canvas');
+    // Obtém o contexto 2D do canvas
+    var pincel = tela.getContext('2d');
+
+    // Define a cor de preenchimento do canvas como lightgray
+    pincel.fillStyle = 'lightgray';
+    // Preenche todo o canvas com a cor definida
+    pincel.fillRect(0, 0, 600, 400);
+
+    // Função para desenhar um círculo
+    function desenhaCirculo(x, y, raio, cor) {
+
+        // Define a cor de preenchimento do círculo
+        pincel.fillStyle = cor;
+        // Inicia o desenho do círculo
+        pincel.beginPath();
+        // Desenha um arco circular com centro
+        pincel.arc(x, y, raio, 0, 2*3.14);
+        // Preenche o círculo com a cor definida
+        pincel.fill();
+    }
+    
+    // Função para desenhar uma flor
+    function desenhaFlor(x,y){
+    
+        desenhaCirculo(x, y-20, 10, 'yellow');
+        desenhaCirculo(x+20, y, 10, 'black');
+        desenhaCirculo(x, y, 10, 'red');
+        desenhaCirculo(x, y+20, 10, 'blue');
+        desenhaCirculo(x-20, y, 10, 'orange');
+    }
+
+    // Desenha pétalas da flor usando a função desenhaCirculo
+    desenhaFlor(300,200);
+
+</script>
