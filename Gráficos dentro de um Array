@@ -1,0 +1,65 @@
+<--!Cria um elemento canvas com uma largura de 600 pixels e altura de 400 pixels na página HTML-->
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    // Função para desenhar o retangulo 
+    function desenhaRetangulo(x, y, largura, altura, cor) {
+        // Seleciona o elemento canvas na página
+        var tela = document.querySelector('canvas');
+        // Obtém o contexto 2D do canvas
+        var pincel = tela.getContext('2d');
+
+        // Preenche o retângulo com a cor especificada
+        pincel.fillStyle=cor;
+        pincel.fillRect(x,y, largura, altura);
+
+        // Define a cor da borda do retângulo como preta
+        pincel.strokeStyle='black';
+        pincel.strokeRect(x,y, largura, altura);
+    }
+
+    // Função para desenhar texto de cada retangulo
+    function desenhaTexto(x, y, texto) {
+        // Seleciona o elemento canvas na página
+        var tela = document.querySelector('canvas');
+        // Obtém o contexto 2D do canvas
+        var pincel = tela.getContext('2d');
+
+        // Define a fonte do texto
+        pincel.font='15px Georgia';
+        // Define a cor do texto como preto
+        pincel.fillStyle='black';
+        // Renderiza o texto nas coordenadas (x, y)
+        pincel.fillText(texto, x, y);    
+    }
+
+    // Função que desenha a barra 
+    function desenhaBarra(x, y, serie, cores, texto) {
+        desenhaTexto(x,30,texto);
+        // Variável auxiliar para controlar a altura das barras
+        var aux = 0;
+
+        // Loop para desenhar as barras da série
+        for(var i=0; i < serie.length; i++){
+            desenhaRetangulo(x,y,50,serie[i],cores[i]);
+            console.log(aux);
+            // Atualiza a variável auxiliar com o valor atual da série
+            aux=serie[i];
+            // Atualiza a coordenada y para posicionar a próxima barra abaixo da anterior
+            y=y+aux;
+        }
+}
+
+    // Array com os valores de "altura" 
+    var serie2015 = [50, 25, 20, 5];
+    var serie2016 = [65, 20, 13, 2];
+
+    // Array com a sequência de cores para as barras 
+    var cores = ['blue', 'green', 'yellow', 'red'];
+
+    // Chamada para o algoritmo
+    desenhaBarra(50, 50, serie2015, cores, '2015');
+    desenhaBarra(150, 50, serie2016, cores, '2016');
+
+</script>
